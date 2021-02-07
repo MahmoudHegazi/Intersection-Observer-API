@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+
+<style>
+.your-active-class {
+  background: blue;
+}
+</style>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<ul>
+</ul>
+<section data-nav="s1" style="height:650px;border:2px solid gold;"></section>
+<section data-nav="s2" style="height:650px;border:2px solid gold;"></section>
+<section data-nav="s3" style="height:650px;border:2px solid gold;"></section>
+<script>
+
+let sectionList = document.querySelectorAll('section');
+let element = document.querySelector('ul');
+let fragment = document.createDocumentFragment();
+let options = { root:null,rootMargin: '0px',threshold: 0.7};
+
+
+
+
+for (var section of sectionList){
+const stored_section = section;
+let newlist= document.createElement('li');
+
+let anchorLinkp1 = section.getAttribute('data-nav');
+let l = document.createElement('a');
+
+l.addEventListener('click', function(){
+stored_section.scrollIntoView({behavior:'smooth'});
+
+console.log('I scrolled to Section' + anchorLinkp1)});
+
+t = document.createTextNode(anchorLinkp1);
+l.appendChild(t);
+newlist.appendChild(l);
+fragment.appendChild(newlist);
+}
+
+element.appendChild(fragment);
+
+
+function scroller() {
+
+
+      let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        
+           if (entry.isIntersecting) {
+        
+
+            entry.target.classList.add("your-active-class");
+
+        } else {
+
+          entry.target.classList.remove("your-active-class");
+        
+
+             observer.unobserve(entry.target);}
+
+          
+        });} ,options);
+
+
+      for (let s of sectionList) {
+        const stored_s = s;
+           observer.observe(stored_s)}
+}
+
+window.addEventListener('scroll', scroller);
+</script>
+</body>
+</html>
