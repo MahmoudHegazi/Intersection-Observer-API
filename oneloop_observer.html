@@ -107,13 +107,13 @@
 <script>
 let sections = document.querySelectorAll("section");
 
-  const observingSections = (entrys) => {
-           if (entrys[0].isIntersecting) {
-             entrys[0].target.classList.add("your-active-class");
+  const observingSections = (entries) => {
+           if (entries[0].isIntersecting) {
+             entries[0].target.classList.add("your-active-class");
              //activeLink.classList.add("active-link");
           }
              else {
-             entrys[0].target.classList.remove("your-active-class");
+             entries[0].target.classList.remove("your-active-class");
              //activeLink.classList.remove("active-link");              
          }
          
