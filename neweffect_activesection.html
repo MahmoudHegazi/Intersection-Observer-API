@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+.demo {
+ padding: 10px;
+ border: 1px solid green;
+  width:100%;height:500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  height: auto;
+}
+
+.child {
+
+  background: lightgreen;
+  height: 80%;
+  width: 80%;
+  border: 2px solid aqua;
+  border-radius: 25%;
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+  display: inhite;
+  float:right;
+}
+
+.row {
+  width: 90%;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+</style>
+<script>
+$(document).ready(function(){
+
+
+  $(window).scroll(function(){
+
+    var testDivs = document.querySelectorAll(".test");
+  
+  for (var i=0; i<testDivs.length; i++){
+   //   alert(testDivs[i].offsetTop);
+   // alert(window.scrollY);
+    
+    if ( window.scrollY >= (testDivs[i].offsetTop -250) &&  window.scrollY < (testDivs[i].offsetTop +  testDivs[i].offsetHeight))
+    
+    { 
+    
+    
+    testDivs.forEach( (item)=>{
+      if (!testDivs[i].classList.contains("b")){
+       testDivs[i].classList.remove("b");
+       
+       }
+    });
+     
+    console.log((window.scrollY - testDivs[i].offsetTop)*-1, "+", i, "height", testDivs[i].offsetHeight); 
+    
+      
+      $(testDivs[i].firstElementChild).fadeIn("slow");
+      
+      if (!testDivs[i].classList.contains("b")){testDivs[i].classList.add("b");}
+    } else {
+      $(testDivs[i].firstElementChild).fadeOut("slow");
+      testDivs[i].firstElementChild.style.display = "none";
+    }
+  }
+  
+  
+  /*
+    $("#div1").fadeIn();
+    $("#div2").fadeIn("slow");
+    $("#div3").fadeIn(3000);
+    
+    */
+    
+    
+  });
+});
+</script>
+</head>
+<body>
+
+<p>Demonstrate fadeIn() with different parameters.</p>
+
+<button>Click to fade in boxes</button><br><br>
+
+<div class="container">
+<div class="demo test" id="div1">
+  <div class="child">
+   <p class="row">The required speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+
+The required opacity parameter in the fadeTo() method specifies fading to a given opacity (value between 0 and 1).
+
+The optional callback parameter is a function to be executed after the function completes.
+
+The following example demonstrates the fadeTo() method with different parameters:</p>
+
+   <p class="row">The required speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+
+The required opacity parameter in the fadeTo() method specifies fading to a given opacity (value between 0 and 1).
+
+The optional callback parameter is a function to be executed after the function completes.
+
+!Remember The optional callback parameter is a function to be executed after the function completes. and The required opacity parameter in the fadeTo() method specifies fading to a given opacity (value between 0 and 1).
+
+The following example demonstrates the fadeTo() method with different parameters:</p>
+
+
+  </div>
+</div><br>
+<div class="demo test" id="div2"><div class="child"><img style="float:right;" width="40%" height="200" src="https://i.stack.imgur.com/rpKqs.gif">
+<p class="row">The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. The optional callback parameter is a function to be executed after the fading completes. The following example demonstrates the fadeIn() method with different parameters:
+</p>
+
+
+<p class="row">
+The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+
+The optional callback parameter is a function to be executed after the fading completes.
+
+The following example demonstrates the fadeOut() method with different parameters:
+
+</p>
+
+</div></div><br>
+<div class="demo test" id="div3">
+
+<div class="child">
+
+<h4>jQuery fadeToggle() Method</h4>
+
+<p>The jQuery fadeToggle() method toggles between the fadeIn() and fadeOut() methods.
+
+If the elements are faded out, fadeToggle() will fade them in.
+
+If the elements are faded in, fadeToggle() will fade them out.</p>
+
+
+<img  src="https://i.stack.imgur.com/022Fl.gif" width="50%" height="300" style="margin-left:auto;margin-right:auto;display:block;">
+</div>
+
+</div>
+
+
+
+<div class="demo test" id="div4"><div class="child"><img style="float:right;" width="40%" height="200" src="https://i.stack.imgur.com/rpKqs.gif">
+<p class="row">The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. The optional callback parameter is a function to be executed after the fading completes. The following example demonstrates the fadeIn() method with different parameters:
+</p>
+</div></div>
+<div class="demo test" id="div5"><div class="child"><img style="float:right;" width="40%" height="200" src="https://i.stack.imgur.com/rpKqs.gif">
+<p class="row">The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. The optional callback parameter is a function to be executed after the fading completes. The following example demonstrates the fadeIn() method with different parameters:
+</p>
+
+<p class="row">
+The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+
+The optional callback parameter is a function to be executed after the fading completes.
+
+The following example demonstrates the fadeOut() method with different parameters:
+
+</p>
+</div></div>
+<div class="demo test" id="div6"><div class="child"><img style="float:right;" width="40%" height="200" src="https://i.stack.imgur.com/rpKqs.gif">
+<p class="row">The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. The optional callback parameter is a function to be executed after the fading completes. The following example demonstrates the fadeIn() method with different parameters:
+</p>
+</div></div>
+<div class="demo test" id="div7"><div class="child"><h4>jQuery fadeToggle() Method</h4>
+
+<p>The jQuery fadeToggle() method toggles between the fadeIn() and fadeOut() methods.
+
+If the elements are faded out, fadeToggle() will fade them in.
+
+If the elements are faded in, fadeToggle() will fade them out.</p>
+
+
+<img  src="https://i.stack.imgur.com/022Fl.gif" width="50%" height="300" style="margin-left:auto;margin-right:auto;display:block;"></div></div>
+</div>
+
+
+</body>
+</html>
